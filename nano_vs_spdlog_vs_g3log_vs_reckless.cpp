@@ -11,7 +11,8 @@
 // #include "reckless/severity_log.hpp"
 // #include "reckless/file_writer.hpp"
 
-#include <system-z/utils/NanoLog.hpp>
+#include "NanoLogSystenZ.hpp"
+// #include <system-z/utils/NanoLog.hpp>
 
 /* Returns microseconds since epoch */
 inline uint64_t timestamp_now()
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], "nanolog-system-z") == 0)
     {
         // Guaranteed nano log.
-        nanolog::initialize(nanolog::GuaranteedLogger(), "/tmp/", "nanolog-system-z", 20, "", -1);
+        nanolog_systen_z::initialize(nanolog_systen_z::GuaranteedLogger(), "/home/wsuser/work/panther-legacy-cpp/NanoLog-systemZ/", "nanolog-system-z", 20, "", -1);
 
         auto nanolog_benchmark = [](int i, char const *const cstr)
         { LOG_INFO(timestamp_now()) << "Logging " << cstr << i << 0 << 'K' << -42.42; };
